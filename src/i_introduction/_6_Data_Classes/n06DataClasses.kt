@@ -15,10 +15,13 @@ fun todoTask6(): Nothing = TODO(
     references = { JavaCode6.Person("Alice", 29) }
 )
 
-class Person
+data class Person(val name: String, val age: Int) {
+    fun foobar(): String = "apa ${name} of ${age}"
+}
 
 fun task6(): List<Person> {
-    todoTask6()
-    return listOf(/*Person("Alice", 29), Person("Bob", 31)*/)
+    //todoTask6()
+    println(Person("banana", 1).foobar())
+    return listOf(Person("Alice", 29), Person("Bob", 31))
 }
 

@@ -1,5 +1,6 @@
 package iii_conventions
 
+import com.google.common.collect.ComparisonChain
 import util.TODO
 import util.doc25
 
@@ -16,7 +17,7 @@ fun todoTask25(): Nothing = TODO(
 )
 
 fun task25(date1: MyDate, date2: MyDate): Boolean {
-    todoTask25()
-//    return date1 < date2
+    //todoTask25()
+    return date1 < date2
 }
 

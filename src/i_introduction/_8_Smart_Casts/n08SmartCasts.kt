@@ -11,9 +11,13 @@ class Sum(val left: Expr, val right: Expr) : Expr()
 
 fun eval(e: Expr): Int =
         when (e) {
-            is Num -> todoTask8(e)
-            is Sum -> todoTask8(e)
+            is Num -> doTask8(e)
+            is Sum -> doTask8(e)
         }
+
+fun doTask8(n: Num): Int = n.value
+
+fun doTask8(s: Sum): Int = eval(s.left) + eval(s.right)
 
 fun todoTask8(expr: Expr): Nothing = TODO(
     """
