@@ -19,22 +19,38 @@ fun todoTask39(): Nothing = TODO(
     documentation = doc39()
 )
 
+fun color(td: TD, row: Int, col: Int): Unit {
+    td.set("color", getTitleColor())
+    td.set("bgcolor", getCellColor(row, col))
+}
+
 fun renderProductTable(): String {
     return html {
+        var row = 0
         table {
+            row++
             tr {
                 td {
                     text("Product")
-                }
+                }.apply { color(this, row, 1) }
                 td {
                     text("Price")
-                }
+                }.apply { color(this, row, 2) }
                 td {
                     text("Popularity")
-                }
+                }.apply { color(this, row, 3) }
             }
             val products = getProducts()
-            todoTask39()
+            var row = 0
+            products.forEach {
+                row++
+                tr {
+                    td { text(it.description) }.apply { color(this, row, 1) }
+                    td { text(it.price) }.apply { color(this, row, 2) }
+                    td { text(it.popularity) }.apply { color(this, row, 3) }
+                }
+            }
+            //todoTask39()
         }
     }.toString()
 }
